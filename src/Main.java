@@ -217,8 +217,8 @@ public class Main extends Canvas implements Runnable {
         }
 
         for(int i = 0; i <= trianglesProjected.size() - 1; i++) {
-            //renderTriangle(g, trianglesProjected.get(i));
-            renderFullTriangle(g, trianglesProjected.get(i));
+            renderTriangle(g, trianglesProjected.get(i));
+            //renderFullTriangle(g, trianglesProjected.get(i));
         }
 
         //angle = 0.11000;
