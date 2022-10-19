@@ -217,8 +217,8 @@ public class Main extends Canvas implements Runnable {
         }
 
         for(int i = 0; i <= trianglesProjected.size() - 1; i++) {
-            renderTriangle(g, trianglesProjected.get(i));
-            //renderFullTriangle(g, trianglesProjected.get(i));
+            //renderTriangle(g, trianglesProjected.get(i));
+            renderFullTriangle(g, trianglesProjected.get(i));
         }
 
         //angle = 0.11000;
@@ -271,12 +271,39 @@ public class Main extends Canvas implements Runnable {
 
         int lenght = 0;
 
-        if(x1 < middle_x && y1 < middle_y){
+        if(x1_rendered < middle_x && y1_rendered < middle_y){
             int x_3rd = (int) x1_rendered;
             int y_3rd = (int) middle_y;
 
             int lenghtSide2 = (int) middle_x - x_3rd;
             int lenghtSide1 = y_3rd - (int) y1_rendered;
+
+            lenght = (int) java.lang.Math.sqrt((lenghtSide1 * lenghtSide1) + (lenghtSide2 * lenghtSide2));
+        }
+        if(x1_rendered < middle_x && y1_rendered > middle_y){
+            int x_3rd = (int) x1_rendered;
+            int y_3rd = (int) middle_y;
+
+            int lenghtSide2 = (int) middle_x - x_3rd;
+            int lenghtSide1 = (int) y1_rendered - y_3rd;
+
+            lenght = (int) java.lang.Math.sqrt((lenghtSide1 * lenghtSide1) + (lenghtSide2 * lenghtSide2));
+        }
+        if(x1_rendered > middle_x && y1_rendered < middle_y){
+            int x_3rd = (int) x1_rendered;
+            int y_3rd = (int) middle_y;
+
+            int lenghtSide2 = x_3rd - (int) middle_x;
+            int lenghtSide1 = y_3rd - (int) y1_rendered;
+
+            lenght = (int) java.lang.Math.sqrt((lenghtSide1 * lenghtSide1) + (lenghtSide2 * lenghtSide2));
+        }
+        if(x1_rendered > middle_x && y1_rendered > middle_y){
+            int x_3rd = (int) x1_rendered;
+            int y_3rd = (int) middle_y;
+
+            int lenghtSide2 = x_3rd - (int) middle_x;
+            int lenghtSide1 = (int) y1_rendered - y_3rd;
 
             lenght = (int) java.lang.Math.sqrt((lenghtSide1 * lenghtSide1) + (lenghtSide2 * lenghtSide2));
         }
